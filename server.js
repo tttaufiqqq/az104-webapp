@@ -11,7 +11,11 @@ const server = http.createServer((req, res) => {
     return res.end('ok');
   }
 
-  const slot = process.env.WEBSITE_SLOT_NAME || 'local';
+  // WEBSITE_SLOT_NAME is not set on this Linux app, so derive the slot from
+  // the first part of the host name (a staging slot's host contains "-staging").
+  const host = process.env.WEBSITE_HOSTNAME || '';
+  const slot = process.env.WEBSITE_SLOT_NAME ||
+    (host ? (host.split('.')[0].includes('-staging') ? 'staging' : 'Production') : 'local');
   const slotLabel = process.env.SLOT_LABEL || '(not set)';
   const message = process.env.APP_MESSAGE || '(not set)';
   const instance = process.env.WEBSITE_INSTANCE_ID
