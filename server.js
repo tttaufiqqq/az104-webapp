@@ -2,8 +2,8 @@
 // Change VERSION and COLOR on the staging branch, then swap.
 const http = require('http');
 
-const VERSION = 'v1';
-const COLOR = '#1e6bd6';
+const VERSION = 'v2';
+const COLOR = '#1f9d55';
 
 const server = http.createServer((req, res) => {
   if (req.url === '/health') {
