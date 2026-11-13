@@ -1,0 +1,13 @@
+{
+  "name": "az104-lab-webapp",
+  "version": "1.0.0",
+  "description": "Tiny zero-dependency app for the AZ-104 App Service lab",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
